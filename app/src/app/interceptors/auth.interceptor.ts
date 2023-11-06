@@ -6,7 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { from, lastValueFrom, Observable } from 'rxjs';
-import { StorageService } from '../../../../../refuapp-admin/app/src/app/services/storage/storage.service';
+import { StorageService } from '../services/storage/storage.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
