@@ -16,8 +16,6 @@ import { RefugesListPage } from './refuge-list/refuges-list.page';
     RefugesPageRoutingModule,
     NgOptimizedImage,
   ],
-  declarations: [
-    RefugesListPage,
-  ],
+  declarations: [RefugesListPage],
 })
 export class RefugesPageModule {}

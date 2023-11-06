@@ -6,8 +6,8 @@ import { InternalErrorPagePage } from './internal-error-page.page';
 const routes: Routes = [
   {
     path: '',
-    component: InternalErrorPagePage
-  }
+    component: InternalErrorPagePage,
+  },
 ];
 
 @NgModule({

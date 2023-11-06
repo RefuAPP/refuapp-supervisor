@@ -4,10 +4,14 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { match } from 'ts-pattern';
-import {SupervisorCredentials} from "../../../schemas/supervisor/supervisor";
-import {AuthenticationResponse} from "../../../schemas/auth/authenticate";
-import {Token} from "../../../schemas/auth/token";
-import {AdminErrors, AuthenticationErrors, ServerErrors} from "../../../schemas/auth/errors";
+import { SupervisorCredentials } from '../../../schemas/supervisor/supervisor';
+import { AuthenticationResponse } from '../../../schemas/auth/authenticate';
+import { Token } from '../../../schemas/auth/token';
+import {
+  AdminErrors,
+  AuthenticationErrors,
+  ServerErrors,
+} from '../../../schemas/auth/errors';
 
 @Component({
   selector: 'app-login',

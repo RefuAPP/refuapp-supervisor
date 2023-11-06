@@ -13,8 +13,8 @@ import { ProgrammingErrorPage } from './programming-error.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProgrammingErrorPageRoutingModule
+    ProgrammingErrorPageRoutingModule,
   ],
-  declarations: [ProgrammingErrorPage]
+  declarations: [ProgrammingErrorPage],
 })
 export class ProgrammingErrorPageModule {}

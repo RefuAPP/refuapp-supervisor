@@ -10,14 +10,15 @@ import {
   Observable,
   Subject,
 } from 'rxjs';
-import {Refuge} from "../../../../schemas/refuge/refuge";
+import { Refuge } from '../../../../schemas/refuge/refuge';
 import {
-  CorrectGetRefuges, CorrectGetRefugesPattern,
+  CorrectGetRefuges,
+  CorrectGetRefugesPattern,
   ErrorGetRefuges,
   ErrorGetRefugesPattern,
-  GetAllRefugesErrors
-} from "../../../../schemas/refuge/get-all-refuges-schema";
-import {RefugeService} from "../../../services/refuge/refuge.service";
+  GetAllRefugesErrors,
+} from '../../../../schemas/refuge/get-all-refuges-schema';
+import { RefugeService } from '../../../services/refuge/refuge.service';
 
 @Component({
   selector: 'app-refuges',

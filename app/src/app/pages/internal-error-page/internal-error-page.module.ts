@@ -13,8 +13,8 @@ import { InternalErrorPagePage } from './internal-error-page.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    InternalErrorPagePageRoutingModule
+    InternalErrorPagePageRoutingModule,
   ],
-  declarations: [InternalErrorPagePage]
+  declarations: [InternalErrorPagePage],
 })
 export class InternalErrorPagePageModule {}

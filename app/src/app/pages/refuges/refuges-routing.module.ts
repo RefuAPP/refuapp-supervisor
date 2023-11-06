@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RefugesListPage } from './refuge-list/refuges-list.page';
-import {supervisorGuard} from "../../guards/admin.guard";
+import { supervisorGuard } from '../../guards/admin.guard';
 
 const routes: Routes = [
   {

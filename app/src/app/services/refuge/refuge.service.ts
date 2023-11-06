@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {
   catchError,
   distinctUntilChanged,
@@ -10,20 +10,23 @@ import {
   of,
   retry,
   share,
-  timer
-} from "rxjs";
-import {GetAllRefugesErrors, GetAllRefugesResponse} from "../../../schemas/refuge/get-all-refuges-schema";
-import {Refuge, RefugePattern} from "../../../schemas/refuge/refuge";
-import {isMatching} from "ts-pattern";
-import {environment} from "../../../environments/environment";
+  timer,
+} from 'rxjs';
+import {
+  GetAllRefugesErrors,
+  GetAllRefugesResponse,
+} from '../../../schemas/refuge/get-all-refuges-schema';
+import { Refuge, RefugePattern } from '../../../schemas/refuge/refuge';
+import { isMatching } from 'ts-pattern';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RefugeService {
   private getRefugesConnection?: Observable<GetAllRefugesResponse>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getRefuges(): Observable<GetAllRefugesResponse> {
     if (!this.getRefugesConnection) {

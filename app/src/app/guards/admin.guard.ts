@@ -1,6 +1,6 @@
-import {CanActivateFn, Router} from "@angular/router";
-import {inject} from "@angular/core";
-import {AuthService} from "../services/auth/auth.service";
+import { CanActivateFn, Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 export const supervisorGuard: CanActivateFn = async () => {
   const authService = inject(AuthService);
@@ -11,4 +11,4 @@ export const supervisorGuard: CanActivateFn = async () => {
   }
 
   return router.parseUrl('/login');
-}
+};

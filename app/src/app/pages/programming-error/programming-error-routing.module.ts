@@ -6,8 +6,8 @@ import { ProgrammingErrorPage } from './programming-error.page';
 const routes: Routes = [
   {
     path: '',
-    component: ProgrammingErrorPage
-  }
+    component: ProgrammingErrorPage,
+  },
 ];
 
 @NgModule({

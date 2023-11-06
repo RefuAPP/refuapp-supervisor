@@ -1,4 +1,4 @@
-import {P} from "ts-pattern";
+import { P } from 'ts-pattern';
 
 export type Refuge = {
   id: string;

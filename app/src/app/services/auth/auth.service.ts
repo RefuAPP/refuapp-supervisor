@@ -3,9 +3,13 @@ import { StorageService } from '../storage/storage.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, Observable, of, retry } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import {SupervisorCredentials} from "../../../schemas/supervisor/supervisor";
-import {AuthenticationResponse, fromError, fromResponse} from "../../../schemas/auth/authenticate";
-import {Token} from "../../../schemas/auth/token";
+import { SupervisorCredentials } from '../../../schemas/supervisor/supervisor';
+import {
+  AuthenticationResponse,
+  fromError,
+  fromResponse,
+} from '../../../schemas/auth/authenticate';
+import { Token } from '../../../schemas/auth/token';
 
 const authUri = `${environment.API}/login/`;
 @Injectable({
@@ -17,7 +21,9 @@ export class AuthService {
     private http: HttpClient,
   ) {}
 
-  getToken(credentials: SupervisorCredentials): Observable<AuthenticationResponse> {
+  getToken(
+    credentials: SupervisorCredentials,
+  ): Observable<AuthenticationResponse> {
     const data = this.getFormDataFrom(credentials);
     return this.getTokenFromApi(data);
   }
