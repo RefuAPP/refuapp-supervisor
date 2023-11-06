@@ -1,0 +1,83 @@
+<ion-header [translucent]="true" mode="md">
+  <ion-toolbar>
+    <ion-title>Refuges</ion-title>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar
+          show-clear-button="always"
+          placeholder="Buscar per nom"
+          [(ngModel)]="searchTerm"
+          (ionInput)="searchByName()"
+          [debounce]="250"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        routerLink="/refuges/{{refuge.id}}"
+        *ngFor="let refuge of refuges | async"
+        size-lg="6"
+        size-md="6"
+        size-sm="12"
+        size="12"
+      >
+        <ion-card>
+          <ion-grid>
+            <ion-row>
+              <ion-col
+                class="ion-padding"
+                size-lg="4"
+                size-md="4"
+                size-sm="4"
+                size="12"
+              >
+                <ion-avatar>
+                  <img
+                    ngSrc="{{getImageUrlFor(refuge)}}"
+                    alt="Refuge image"
+                    fill="auto"
+                  />
+                </ion-avatar>
+              </ion-col>
+
+              <ion-col
+                class="ion-padding"
+                size-lg="4"
+                size-md="4"
+                size-sm="4"
+                size="12"
+              >
+                <div class="refuge-name">{{refuge.name}}</div>
+                <p>
+                  Regió: <br />
+                  <strong> {{refuge.region}} </strong>
+                </p>
+                <p>
+                  Altitud: <br />
+                  <strong> {{refuge.altitude}}m </strong>
+                </p>
+                <p>
+                  Capacitat:
+                  <br />
+                  <strong>- Hivern: {{refuge.capacity.winter}} </strong> <br />
+                  <strong>- Estiu: {{refuge.capacity.summer}} </strong>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/refuges/create">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

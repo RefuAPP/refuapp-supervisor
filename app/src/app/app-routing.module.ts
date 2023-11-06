@@ -3,13 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    redirectTo: 'refuges',
+    pathMatch: 'full',
   },
   {
     path: 'login',
@@ -22,6 +18,10 @@ const routes: Routes = [
   {
     path: 'programming-error',
     loadChildren: () => import('./pages/programming-error/programming-error.module').then( m => m.ProgrammingErrorPageModule)
+  },
+  {
+    path: 'refuges',
+    loadChildren: () => import('./pages/refuges/refuges.module').then( m => m.RefugesPageModule)
   },
 ];
 
