@@ -47,7 +47,7 @@ export class AuthService {
     const formData = new FormData();
     formData.append('username', credentials.username);
     formData.append('password', credentials.password);
-    formData.append('scope', 'admin');
+    formData.append('scope', 'supervisor');
     return formData;
   }
 }
