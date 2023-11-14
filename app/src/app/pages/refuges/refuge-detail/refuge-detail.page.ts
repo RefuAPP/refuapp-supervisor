@@ -9,6 +9,9 @@ import {
 } from '../../../../schemas/refuge/get-refuge-schema';
 import { match } from 'ts-pattern';
 import { Refuge } from '../../../../schemas/refuge/refuge';
+import { Night } from '../../../../schemas/reservations/night';
+import { ReservationService } from '../../../services/reservations/reservation.service';
+import { GetReservationsResponse } from '../../../../schemas/reservations/get-reservations-schema';
 
 @Component({
   selector: 'app-refuge-detail',
@@ -17,11 +20,14 @@ import { Refuge } from '../../../../schemas/refuge/refuge';
 })
 export class RefugeDetailPage implements OnInit {
   refuge?: Refuge;
+  pickedDate = '';
+  userIds: string[] = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private refugeService: RefugeService,
+    private reservationService: ReservationService,
     private alertController: AlertController,
     private loadingController: LoadingController,
     private translateService: TranslateService,
@@ -142,5 +148,39 @@ export class RefugeDetailPage implements OnInit {
   ) {
     await this.loadingController.dismiss().then();
     await func();
+  }
+
+  onSearch() {
+    console.log(this.pickedDate);
+    const date = this.getDateFromISOString(this.pickedDate);
+    const night = this.getNightFromDate(date);
+    if (night === null) return;
+    this.fetchUserIdsFromNight(night);
+  }
+
+  private fetchUserIdsFromNight(night: Night) {
+    this.reservationService.getReservationsFrom(night).subscribe({
+      next: (response: GetReservationsResponse) =>
+        this.handleGetReservationsResponse(response),
+      error: () => this.handleClientError().then(),
+    });
+  }
+
+  private handleGetReservationsResponse(response: GetReservationsResponse) {
+    console.log(response);
+  }
+
+  private getDateFromISOString(date: string): Date {
+    return new Date(date);
+  }
+
+  private getNightFromDate(date: Date): Night | null {
+    if (this.refuge === undefined) return null;
+    return {
+      day: date.getDate(),
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
+      refugeId: this.refuge.id,
+    };
   }
 }
