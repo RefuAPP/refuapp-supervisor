@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "CLIENT_ERROR": {
+      "HEADER": "Alert!",
+      "SUBHEADER": "Your device is failing!",
+      "MESSAGE": "Does your device have internet access? Maybe is our fault and our servers are down",
+      "TRY_AGAIN": "Try again",
+      "EXIT": "Go home"
+    }
+  }
+}

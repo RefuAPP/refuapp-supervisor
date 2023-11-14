@@ -16,9 +16,17 @@ import {
   GetAllRefugesErrors,
   GetAllRefugesResponse,
 } from '../../../schemas/refuge/get-all-refuges-schema';
-import { Refuge, RefugePattern } from '../../../schemas/refuge/refuge';
+import {
+  isValidId,
+  Refuge,
+  RefugePattern,
+} from '../../../schemas/refuge/refuge';
 import { isMatching } from 'ts-pattern';
 import { environment } from '../../../environments/environment';
+import {
+  GetRefugeFromIdErrors,
+  GetRefugeResponse,
+} from '../../../schemas/refuge/get-refuge-schema';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +48,15 @@ export class RefugeService {
         .pipe(share());
     }
     return this.getRefugesConnection;
+  }
+
+  getRefugeFrom(id: string): Observable<GetRefugeResponse> {
+    if (!isValidId(id))
+      return of({
+        status: 'error',
+        error: GetRefugeFromIdErrors.CLIENT_SEND_DATA_ERROR,
+      });
+    return this.getRefugeFromApi(id);
   }
 
   getImageUrlFor(refuge: Refuge): string {
@@ -68,7 +85,33 @@ export class RefugeService {
     );
   }
 
+  private getRefugeFromApi(id: string): Observable<GetRefugeResponse> {
+    const endpoint = this.getRefugeFromIdEndpoint(id);
+    return this.http.get<Refuge>(endpoint).pipe(
+      map<Refuge, GetRefugeResponse | Error>((refuge: Refuge) => {
+        if (isMatching(RefugePattern, refuge))
+          return { status: 'correct', data: refuge };
+        return {
+          status: 'error',
+          error: GetRefugeFromIdErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
+        };
+      }),
+      catchError<GetRefugeResponse | Error, ObservableInput<any>>(
+        (err: HttpErrorResponse) =>
+          of({
+            status: 'error',
+            error: GetRefugeFromIdErrors.from(err),
+          }),
+      ),
+      retry(3),
+    );
+  }
+
   private getAllRefugesEndpoint(): string {
     return `${environment.API}/refuges/`;
+  }
+
+  private getRefugeFromIdEndpoint(id: string): string {
+    return `${environment.API}/refuges/${id}`;
   }
 }
