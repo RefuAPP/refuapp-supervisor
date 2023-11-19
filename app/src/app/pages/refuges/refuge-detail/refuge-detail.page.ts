@@ -83,16 +83,16 @@ export class RefugeDetailPage implements OnInit {
 
   private async handleClientError() {
     const alert = await this.alertController.create({
-      header: this.translateService.instant('HOME.ERRORS.CLIENT_ERROR.HEADER'),
+      header: this.translateService.instant('HOME.CLIENT_ERROR.HEADER'),
       subHeader: this.translateService.instant(
-        'HOME.ERRORS.CLIENT_ERROR.SUBHEADER',
+        'HOME.CLIENT_ERROR.SUBHEADER',
       ),
       message: this.translateService.instant(
-        'HOME.ERRORS.CLIENT_ERROR.MESSAGE',
+        'HOME.CLIENT_ERROR.MESSAGE',
       ),
       buttons: [
         {
-          text: this.translateService.instant('HOME.ERRORS.CLIENT_ERROR.EXIT'),
+          text: this.translateService.instant('HOME.CLIENT_ERROR.EXIT'),
           handler: () => {
             this.alertController.dismiss().then();
             this.fetchRefuge(this.getRefugeIdFromUrl());

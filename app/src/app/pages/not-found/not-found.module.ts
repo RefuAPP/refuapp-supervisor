@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProgrammingErrorPageRoutingModule } from './programming-error-routing.module';
+import { NotFoundPageRoutingModule } from './not-found-routing.module';
 
-import { ProgrammingErrorPage } from './programming-error.page';
+import { NotFoundPage } from './not-found.page';
 import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
@@ -14,9 +14,9 @@ import {TranslateModule} from "@ngx-translate/core";
         CommonModule,
         FormsModule,
         IonicModule,
-        ProgrammingErrorPageRoutingModule,
-        TranslateModule,
+        NotFoundPageRoutingModule,
+        TranslateModule
     ],
-  declarations: [ProgrammingErrorPage],
+  declarations: [NotFoundPage]
 })
-export class ProgrammingErrorPageModule {}
+export class NotFoundPageModule {}

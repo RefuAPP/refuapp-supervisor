@@ -7,5 +7,54 @@
       "TRY_AGAIN": "Try again",
       "EXIT": "Go home"
     }
+  },
+  "LOGIN": {
+    "HEADER": "Login",
+    "USERNAME": {
+      "LABEL": "Username",
+      "ERROR": "Username is required",
+      "ERROR_NOT_FOUND": "This admin doesn't exist"
+    },
+    "PASSWORD": {
+      "LABEL": "Password",
+      "ERROR": "Password is required",
+      "ERROR_INCORRECT_PASSWORD": "Password is incorrect"
+    },
+    "SUBMIT": "Login",
+    "LOADING": "Signing in..."
+  },
+  "INTERNAL_ERROR": {
+    "HEADER": "Internal error",
+    "MESSAGE": "Sorry, we are having internal issues. Try again later",
+    "EXIT": "Go home"
+  },
+  "PROGRAMMING_ERROR": {
+    "HEADER": "Programming error",
+    "MESSAGE": "We suck, our code had a programming error and we didn't notice it. Send us an email!",
+    "EXIT": "Go home"
+  },
+  "NOT_FOUND_ERROR": {
+    "HEADER": "Resource not found",
+    "MESSAGE": "The page you are searching doesn't exist. You are being a bad guy or it's our fault.",
+    "EXIT": "Go home"
+  },
+  "REFUGES": {
+    "FORM": {
+      "ALTITUDE": {
+        "LABEL": "Altitude"
+      },
+      "REGION": {
+        "LABEL": "Region"
+      }
+    },
+    "LIST": {
+      "HEADER": "Refuges",
+      "CAPACITY": "Capacity",
+      "METRES": "metres",
+      "WINTER": "Winter",
+      "SUMMER": "Summer",
+      "PEOPLE": "people",
+      "SEARCH": "Search by name"
+    }
   }
 }
