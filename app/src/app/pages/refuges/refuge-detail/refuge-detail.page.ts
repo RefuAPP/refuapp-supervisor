@@ -30,7 +30,7 @@ import { User } from '../../../../schemas/auth/user';
 })
 export class RefugeDetailPage implements OnInit {
   refuge?: Refuge;
-  pickedDate = '';
+  pickedDate = new Date().toISOString();
   private userIds: string[] = [];
   users: User[] = [];
 
