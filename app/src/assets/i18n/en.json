@@ -62,5 +62,12 @@
       "PEOPLE": "people",
       "SEARCH": "Search by name"
     }
+  },
+
+  "RESERVATIONS": {
+    "SEARCH": "Search",
+    "USERNAME": "Username",
+    "PHONE": "Phone number",
+    "EMERGENCY": "Emergency number"
   }
 }

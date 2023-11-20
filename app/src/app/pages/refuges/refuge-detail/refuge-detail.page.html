@@ -10,15 +10,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-button (click)="onSearch()">
-          Search
+          {{"RESERVATIONS.SEARCH" | translate}}
           <ion-icon name="folder"></ion-icon>
         </ion-button>
       </ion-row>
       <ion-list>
         <ion-item>
-          <ion-label> Username </ion-label>
-          <ion-note slot="end"> Phone Number </ion-note>
-          <ion-note slot="end" color="danger"> Emergency Number </ion-note>
+          <ion-label> {{"RESERVATIONS.USERNAME" | translate}} </ion-label>
+          <ion-note slot="end"> {{"RESERVATIONS.PHONE" | translate}} </ion-note>
+          <ion-note slot="end" color="danger">
+            {{"RESERVATIONS.EMERGENCY" | translate}}
+          </ion-note>
         </ion-item>
         <ion-item *ngFor="let user of users">
           <ion-label> {{ user.username }} </ion-label>
@@ -40,15 +42,17 @@
           [(ngModel)]="pickedDate"
         ></ion-datetime>
         <ion-button (click)="onSearch()">
-          Search
+          {{"RESERVATIONS.SEARCH" | translate}}
           <ion-icon name="folder"></ion-icon>
         </ion-button>
       </ion-row>
       <ion-list>
         <ion-item>
-          <ion-label> Username </ion-label>
-          <ion-note slot="end"> Phone Number </ion-note>
-          <ion-note slot="end" color="danger"> Emergency Number </ion-note>
+          <ion-label> {{"RESERVATIONS.USERNAME" | translate}} </ion-label>
+          <ion-note slot="end"> {{"RESERVATIONS.PHONE" | translate}} </ion-note>
+          <ion-note slot="end" color="danger">
+            {{"RESERVATIONS.EMERGENCY" | translate}}
+          </ion-note>
         </ion-item>
         <ion-item *ngFor="let user of users">
           <ion-label>
