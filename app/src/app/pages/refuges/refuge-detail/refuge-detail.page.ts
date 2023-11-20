@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RefugeService } from '../../../services/refuge/refuge.service';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import {
   GetRefugeFromIdErrors,
@@ -43,6 +43,7 @@ export class RefugeDetailPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
     private translateService: TranslateService,
+    private platform: Platform,
   ) {
     const refugeId = this.getRefugeIdFromUrl();
     this.fetchRefuge(refugeId).then();
@@ -285,5 +286,9 @@ export class RefugeDetailPage implements OnInit {
         GetUserErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
         () => this.handleBadProgrammerData(),
       );
+  }
+
+  platformIsWeb(): boolean {
+    return this.platform.is('desktop');
   }
 }

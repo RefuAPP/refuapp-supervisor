@@ -1,13 +1,57 @@
 <ion-content>
-  <ion-grid>
-    <ion-col>
-      <ion-datetime presentation="date" [(ngModel)]="pickedDate"></ion-datetime>
-    </ion-col>
-    <ion-col>
-      <ion-button (click)="onSearch()" style="margin-left: 5%">
-        Search
-        <ion-icon style="margin-left: 5%" name="folder"></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-grid>
+  <!-- Web Layout -->
+  <div *ngIf="platformIsWeb; else mobileLayout" class="web-layout">
+    <div class="web-container">
+      <ion-col style="justify-content: center; align-content: center">
+        <ion-datetime
+          presentation="date"
+          [(ngModel)]="pickedDate"
+        ></ion-datetime>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onSearch()">
+          Search
+          <ion-icon name="folder"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-list>
+        <ion-item *ngFor="let user of users">
+          <ion-label>{{ user.username }}</ion-label>
+          <ion-note slot="end">{{ user.phone_number }}</ion-note>
+          <ion-note slot="end" color="danger"
+            >{{ user.emergency_number }}</ion-note
+          >
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <!-- Mobile Layout -->
+  <ng-template #mobileLayout>
+    <div class="mobile-layout">
+      <ion-row style="justify-content: center; align-content: center">
+        <ion-col>
+          <ion-datetime
+            presentation="date"
+            [(ngModel)]="pickedDate"
+          ></ion-datetime>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="onSearch()" style="margin-left: 5%">
+            Search
+            <ion-icon style="margin-left: 5%" name="folder"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <ion-item *ngFor="let user of users">
+          <ion-label>{{ user.username }}</ion-label>
+          <ion-note slot="end">{{ user.phone_number }}</ion-note>
+          <ion-note slot="end" color="danger"
+            >{{ user.emergency_number }}</ion-note
+          >
+        </ion-item>
+      </ion-list>
+    </div>
+  </ng-template>
 </ion-content>
