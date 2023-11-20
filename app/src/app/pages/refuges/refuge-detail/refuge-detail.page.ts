@@ -16,6 +16,12 @@ import {
   GetReservationsResponse,
 } from '../../../../schemas/reservations/get-reservations-schema';
 import { Reservation } from '../../../../schemas/reservations/reservation';
+import { AuthService } from '../../../services/auth/auth.service';
+import {
+  GetUserErrors,
+  GetUserResponse,
+} from '../../../../schemas/auth/get-user-schema';
+import { User } from '../../../../schemas/auth/user';
 
 @Component({
   selector: 'app-refuge-detail',
@@ -25,13 +31,15 @@ import { Reservation } from '../../../../schemas/reservations/reservation';
 export class RefugeDetailPage implements OnInit {
   refuge?: Refuge;
   pickedDate = '';
-  userIds: string[] = [];
+  private userIds: string[] = [];
+  users: User[] = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private refugeService: RefugeService,
     private reservationService: ReservationService,
+    private authService: AuthService,
     private alertController: AlertController,
     private loadingController: LoadingController,
     private translateService: TranslateService,
@@ -180,8 +188,7 @@ export class RefugeDetailPage implements OnInit {
     data.forEach((reservation: Reservation) => {
       this.userIds.push(reservation.user_id);
     });
-    // FIXME: Remove next line, debug only
-    console.log(this.userIds);
+    this.fetchUsersFromUserIds();
   }
 
   private handleGetReservationsError(error: GetReservationsErrors) {
@@ -234,5 +241,49 @@ export class RefugeDetailPage implements OnInit {
       year: date.getFullYear(),
       refugeId: this.refuge.id,
     };
+  }
+
+  private fetchUsersFromUserIds() {
+    this.userIds.forEach((userId: string) => {
+      this.authService.getUserFrom(userId).subscribe({
+        next: (response: GetUserResponse) => {
+          this.handleGetUserResponse(response);
+        },
+        error: () => this.handleClientError().then(),
+      });
+    });
+  }
+
+  private handleGetUserResponse(response: GetUserResponse) {
+    match(response)
+      .with({ status: 'correct' }, (response) => {
+        this.handleGetUserCorrect(response.data);
+      })
+      .with({ status: 'error' }, (response) => {
+        this.handleGetUserError(response.error);
+      })
+      .exhaustive();
+  }
+
+  private handleGetUserCorrect(data: User) {
+    this.users.push(data);
+    // FIXME: Remove next line, debug only
+    console.log(this.users);
+  }
+
+  private handleGetUserError(error: GetUserErrors) {
+    match(error)
+      .with(GetUserErrors.UNAUTHORIZED, () => this.handleUnauthorized())
+      .with(GetUserErrors.FORBIDDEN, () => this.handleForbidden())
+      .with(GetUserErrors.NOT_FOUND, () => this.handleNotFoundReservations())
+      .with(GetUserErrors.UNKNOWN_ERROR, () => this.handleUnknownError())
+      .with(GetUserErrors.CLIENT_SEND_DATA_ERROR, () =>
+        this.handleBadUserData(),
+      )
+      .with(
+        GetUserErrors.PROGRAMMER_SEND_DATA_ERROR,
+        GetUserErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
+        () => this.handleBadProgrammerData(),
+      );
   }
 }
