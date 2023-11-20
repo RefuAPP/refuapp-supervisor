@@ -1,0 +1,71 @@
+{
+  "HOME": {
+    "CLIENT_ERROR": {
+      "HEADER": "¡Alerta!",
+      "SUBHEADER": "¡Tu dispositivo está fallando!",
+      "MESSAGE": "¿Tu dispositivo tiene acceso a internet? Tal vez sea nuestra culpa y nuestros servidores estén caídos",
+      "TRY_AGAIN": "Intentar de nuevo",
+      "EXIT": "Ir a inicio"
+    }
+  },
+  "LOGIN": {
+    "HEADER": "Iniciar sesión",
+    "USERNAME": {
+      "LABEL": "Nombre de usuario",
+      "ERROR": "Se requiere nombre de usuario",
+      "ERROR_NOT_FOUND": "Este administrador no existe"
+    },
+    "PASSWORD": {
+      "LABEL": "Contraseña",
+      "ERROR": "Se requiere contraseña",
+      "ERROR_INCORRECT_PASSWORD": "La contraseña es incorrecta"
+    },
+    "SUBMIT": "Iniciar sesión",
+    "LOADING": "Iniciando sesión..."
+  },
+  "INTERNAL_ERROR": {
+    "HEADER": "Error interno",
+    "MESSAGE": "Lo siento, estamos experimentando problemas internos. Inténtalo de nuevo más tarde",
+    "EXIT": "Ir a inicio"
+  },
+  "PROGRAMMING_ERROR": {
+    "HEADER": "Error de programación",
+    "MESSAGE": "Somos malos, nuestro código tuvo un error de programación y no nos dimos cuenta. ¡Envíanos un correo electrónico!",
+    "EXIT": "Ir a inicio"
+  },
+  "NOT_FOUND_ERROR": {
+    "HEADER": "Recurso no encontrado",
+    "MESSAGE": "La página que estás buscando no existe. O estás siendo malo o es nuestra culpa.",
+    "EXIT": "Ir a inicio"
+  },
+  "FORBIDDEN_ERROR": {
+    "HEADER": "Recurso prohibido",
+    "MESSAGE": "La página que estás buscando está prohibida para tu rol. O estás siendo travieso o es nuestra culpa.",
+    "EXIT": "Ir a inicio"
+  },
+  "REFUGES": {
+    "FORM": {
+      "ALTITUDE": {
+        "LABEL": "Altitud"
+      },
+      "REGION": {
+        "LABEL": "Región"
+      }
+    },
+    "LIST": {
+      "HEADER": "Refugios",
+      "CAPACITY": "Capacidad",
+      "METRES": "metros",
+      "WINTER": "Invierno",
+      "SUMMER": "Verano",
+      "PEOPLE": "personas",
+      "SEARCH": "Buscar por nombre"
+    }
+  },
+  "RESERVATIONS": {
+    "SEARCH": "Buscar",
+    "USERNAME": "Nombre de usuario",
+    "PHONE": "Número de teléfono",
+    "EMERGENCY": "Número de emergencia"
+  }
+}

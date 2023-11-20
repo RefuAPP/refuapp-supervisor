@@ -1,0 +1,71 @@
+{
+  "HOME": {
+    "CLIENT_ERROR": {
+      "HEADER": "Alerta!",
+      "SUBHEADER": "El teu dispositiu està fallant!",
+      "MESSAGE": "El teu dispositiu té accés a Internet? Potser és culpa nostra i els nostres servidors estan fora de servei",
+      "TRY_AGAIN": "Torna-ho a provar",
+      "EXIT": "Anar a casa"
+    }
+  },
+  "LOGIN": {
+    "HEADER": "Iniciar sessió",
+    "USERNAME": {
+      "LABEL": "Nom d'usuari",
+      "ERROR": "Es requereix el nom d'usuari",
+      "ERROR_NOT_FOUND": "Aquest administrador no existeix"
+    },
+    "PASSWORD": {
+      "LABEL": "Contrasenya",
+      "ERROR": "Es requereix la contrasenya",
+      "ERROR_INCORRECT_PASSWORD": "La contrasenya és incorrecta"
+    },
+    "SUBMIT": "Iniciar sessió",
+    "LOADING": "Iniciant sessió..."
+  },
+  "INTERNAL_ERROR": {
+    "HEADER": "Error intern",
+    "MESSAGE": "Ho sentim, estem experimentant problemes interns. Torna-ho a provar més tard",
+    "EXIT": "Anar a casa"
+  },
+  "PROGRAMMING_ERROR": {
+    "HEADER": "Error de programació",
+    "MESSAGE": "Som dolents, el nostre codi té un error de programació i no ens n'hem adonat. Envieu-nos un correu electrònic!",
+    "EXIT": "Anar a casa"
+  },
+  "NOT_FOUND_ERROR": {
+    "HEADER": "Recurso no trobat",
+    "MESSAGE": "La pàgina que busques no existeix. Estàs sent un malvat o és culpa nostra.",
+    "EXIT": "Anar a casa"
+  },
+  "FORBIDDEN_ERROR": {
+    "HEADER": "Recurso prohibit",
+    "MESSAGE": "La pàgina que busques està prohibida per al teu rol. O ets travess o és culpa nostra.",
+    "EXIT": "Anar a casa"
+  },
+  "REFUGES": {
+    "FORM": {
+      "ALTITUDE": {
+        "LABEL": "Altitud"
+      },
+      "REGION": {
+        "LABEL": "Regió"
+      }
+    },
+    "LIST": {
+      "HEADER": "Refugis",
+      "CAPACITY": "Capacitat",
+      "METRES": "metres",
+      "WINTER": "Hivern",
+      "SUMMER": "Estiu",
+      "PEOPLE": "persones",
+      "SEARCH": "Cercar per nom"
+    }
+  },
+  "RESERVATIONS": {
+    "SEARCH": "Cercar",
+    "USERNAME": "Nom d'usuari",
+    "PHONE": "Número de telèfon",
+    "EMERGENCY": "Número d'emergència"
+  }
+}
