@@ -151,7 +151,6 @@ export class RefugeDetailPage implements OnInit {
   }
 
   onSearch() {
-    console.log(this.pickedDate);
     const date = this.getDateFromISOString(this.pickedDate);
     const night = this.getNightFromDate(date);
     if (night === null) return;
@@ -179,7 +178,7 @@ export class RefugeDetailPage implements OnInit {
 
   private handleGetReservationsCorrect(data: Reservation[]) {
     data.forEach((reservation: Reservation) => {
-      this.userIds.push(reservation.userId);
+      this.userIds.push(reservation.user_id);
     });
     // FIXME: Remove next line, debug only
     console.log(this.userIds);

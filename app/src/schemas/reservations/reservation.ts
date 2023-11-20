@@ -1,8 +1,8 @@
 import { P } from 'ts-pattern';
 
 export type Reservation = {
-  userId: string;
-  refugeId: string;
+  user_id: string;
+  refuge_id: string;
   night: {
     day: number;
     month: number;
