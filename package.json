@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@capacitor/android": "^5.5.1",
     "husky": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.5.1"
   }
 }

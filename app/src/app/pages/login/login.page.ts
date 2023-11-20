@@ -128,7 +128,7 @@ export class LoginPage implements OnInit {
 
   private async startLoadingAnimation() {
     const loading = await this.loadingController.create({
-      message: 'LOGIN.LOADING',
+      message: this.translateService.instant('LOGIN.LOADING'),
       translucent: true,
     });
     return await loading.present();

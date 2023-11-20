@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'app',
+  appId: 'online.refuapp.supervisor',
+  appName: 'RefuApp Supervisor',
   webDir: 'www',
   server: {
     androidScheme: 'https'
