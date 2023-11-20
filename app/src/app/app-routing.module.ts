@@ -33,7 +33,17 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+    loadChildren: () =>
+      import('./pages/not-found/not-found.module').then(
+        (m) => m.NotFoundPageModule,
+      ),
+  },
+  {
+    path: 'forbidden',
+    loadChildren: () =>
+      import('./pages/forbidden/forbidden.module').then(
+        (m) => m.ForbiddenPageModule,
+      ),
   },
 ];
 

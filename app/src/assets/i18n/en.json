@@ -38,6 +38,12 @@
     "MESSAGE": "The page you are searching doesn't exist. You are being a bad guy or it's our fault.",
     "EXIT": "Go home"
   },
+  "FORBIDDEN_ERROR": {
+    "HEADER": "Forbidden resource",
+    "MESSAGE": "The page you're looking for is forbidden for your role. You're either being naughty or it's our fault.",
+    "EXIT": "Go home"
+  },
+
   "REFUGES": {
     "FORM": {
       "ALTITUDE": {

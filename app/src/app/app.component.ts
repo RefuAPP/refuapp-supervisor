@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {DeviceLanguageService} from "./services/language/device-language.service";
-import {TranslateService} from "@ngx-translate/core";
+import { DeviceLanguageService } from './services/language/device-language.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',

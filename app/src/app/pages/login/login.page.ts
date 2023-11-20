@@ -12,7 +12,7 @@ import {
   AuthenticationErrors,
   ServerErrors,
 } from '../../../schemas/auth/errors';
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -103,7 +103,9 @@ export class LoginPage implements OnInit {
         ).then();
       })
       .with(AdminErrors.USER_NOT_FOUND, () => {
-        this.showErrorAndFinishLoadingAnimation("LOGIN.USERNAME.ERROR_NOT_FOUND").then();
+        this.showErrorAndFinishLoadingAnimation(
+          'LOGIN.USERNAME.ERROR_NOT_FOUND',
+        ).then();
       })
       .exhaustive();
   }

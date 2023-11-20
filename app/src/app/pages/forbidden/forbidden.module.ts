@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotFoundPageRoutingModule } from './not-found-routing.module';
+import { ForbiddenPageRoutingModule } from './forbidden-routing.module';
 
-import { NotFoundPage } from './not-found.page';
+import { ForbiddenPage } from './forbidden.page';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    NotFoundPageRoutingModule,
+    ForbiddenPageRoutingModule,
     TranslateModule,
   ],
-  declarations: [NotFoundPage],
+  declarations: [ForbiddenPage],
 })
-export class NotFoundPageModule {}
+export class ForbiddenPageModule {}

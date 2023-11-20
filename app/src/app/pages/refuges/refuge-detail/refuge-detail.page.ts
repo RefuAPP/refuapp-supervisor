@@ -11,7 +11,11 @@ import { match } from 'ts-pattern';
 import { Refuge } from '../../../../schemas/refuge/refuge';
 import { Night } from '../../../../schemas/reservations/night';
 import { ReservationService } from '../../../services/reservations/reservation.service';
-import { GetReservationsResponse } from '../../../../schemas/reservations/get-reservations-schema';
+import {
+  GetReservationsErrors,
+  GetReservationsResponse,
+} from '../../../../schemas/reservations/get-reservations-schema';
+import { Reservation } from '../../../../schemas/reservations/reservation';
 
 @Component({
   selector: 'app-refuge-detail',
@@ -84,12 +88,8 @@ export class RefugeDetailPage implements OnInit {
   private async handleClientError() {
     const alert = await this.alertController.create({
       header: this.translateService.instant('HOME.CLIENT_ERROR.HEADER'),
-      subHeader: this.translateService.instant(
-        'HOME.CLIENT_ERROR.SUBHEADER',
-      ),
-      message: this.translateService.instant(
-        'HOME.CLIENT_ERROR.MESSAGE',
-      ),
+      subHeader: this.translateService.instant('HOME.CLIENT_ERROR.SUBHEADER'),
+      message: this.translateService.instant('HOME.CLIENT_ERROR.MESSAGE'),
       buttons: [
         {
           text: this.translateService.instant('HOME.CLIENT_ERROR.EXIT'),
@@ -167,7 +167,60 @@ export class RefugeDetailPage implements OnInit {
   }
 
   private handleGetReservationsResponse(response: GetReservationsResponse) {
-    console.log(response);
+    match(response)
+      .with({ status: 'correct' }, (response) =>
+        this.handleGetReservationsCorrect(response.data),
+      )
+      .with({ status: 'error' }, (response) =>
+        this.handleGetReservationsError(response.error),
+      )
+      .exhaustive();
+  }
+
+  private handleGetReservationsCorrect(data: Reservation[]) {
+    data.forEach((reservation: Reservation) => {
+      this.userIds.push(reservation.userId);
+    });
+    // FIXME: Remove next line, debug only
+    console.log(this.userIds);
+  }
+
+  private handleGetReservationsError(error: GetReservationsErrors) {
+    match(error)
+      .with(GetReservationsErrors.UNAUTHORIZED, () => this.handleUnauthorized())
+      .with(GetReservationsErrors.FORBIDDEN, () => this.handleForbidden())
+      .with(GetReservationsErrors.NOT_FOUND, () =>
+        this.handleNotFoundReservations(),
+      )
+      .with(GetReservationsErrors.UNKNOWN_ERROR, () =>
+        this.handleUnknownError(),
+      )
+      .with(GetReservationsErrors.CLIENT_SEND_DATA_ERROR, () =>
+        this.handleBadUserData(),
+      )
+      .with(
+        GetReservationsErrors.PROGRAMMER_SEND_DATA_ERROR,
+        GetReservationsErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
+        () => this.handleBadProgrammerData(),
+      );
+  }
+
+  private handleUnauthorized() {
+    this.finishLoadAnimAndExecute(() =>
+      this.router.navigate(['login']).then(),
+    ).then();
+  }
+
+  private handleForbidden() {
+    this.finishLoadAnimAndExecute(() =>
+      this.router.navigate(['forbidden']).then(),
+    ).then();
+  }
+
+  private handleNotFoundReservations() {
+    this.finishLoadAnimAndExecute(() =>
+      this.router.navigate(['not-found']).then(),
+    ).then();
   }
 
   private getDateFromISOString(date: string): Date {
