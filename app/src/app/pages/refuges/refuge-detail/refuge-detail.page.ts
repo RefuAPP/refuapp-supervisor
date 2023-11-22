@@ -43,7 +43,7 @@ export class RefugeDetailPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
     private translateService: TranslateService,
-    private platform: Platform,
+    private platform: Platform
   ) {
     const refugeId = this.getRefugeIdFromUrl();
     this.fetchRefuge(refugeId).then();
@@ -81,15 +81,15 @@ export class RefugeDetailPage implements OnInit {
     match(error)
       .with(GetRefugeFromIdErrors.NOT_FOUND, () => this.handleNotFoundRefuge())
       .with(GetRefugeFromIdErrors.CLIENT_SEND_DATA_ERROR, () =>
-        this.handleBadUserData(),
+        this.handleBadUserData()
       )
       .with(GetRefugeFromIdErrors.UNKNOWN_ERROR, () =>
-        this.handleUnknownError(),
+        this.handleUnknownError()
       )
       .with(
         GetRefugeFromIdErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
         GetRefugeFromIdErrors.PROGRAMMER_SEND_DATA_ERROR,
-        () => this.handleBadProgrammerData(),
+        () => this.handleBadProgrammerData()
       )
       .exhaustive();
   }
@@ -118,7 +118,7 @@ export class RefugeDetailPage implements OnInit {
         .navigate(['not-found'], {
           skipLocationChange: true,
         })
-        .then(),
+        .then()
     ).then();
   }
 
@@ -128,7 +128,7 @@ export class RefugeDetailPage implements OnInit {
         .navigate(['programming-error'], {
           skipLocationChange: true,
         })
-        .then(),
+        .then()
     ).then();
   }
 
@@ -138,7 +138,7 @@ export class RefugeDetailPage implements OnInit {
         .navigate(['not-found-page'], {
           skipLocationChange: true,
         })
-        .then(),
+        .then()
     ).then();
   }
 
@@ -148,18 +148,20 @@ export class RefugeDetailPage implements OnInit {
         .navigate(['internal-error-page'], {
           skipLocationChange: true,
         })
-        .then(),
+        .then()
     ).then();
   }
 
   private async finishLoadAnimAndExecute(
-    func: (() => void) | (() => Promise<void>),
+    func: (() => void) | (() => Promise<void>)
   ) {
     await this.loadingController.dismiss().then();
     await func();
   }
 
   onSearch() {
+    this.userIds = [];
+    this.users = [];
     const date = this.getDateFromISOString(this.pickedDate);
     const night = this.getNightFromDate(date);
     if (night === null) return;
@@ -177,10 +179,10 @@ export class RefugeDetailPage implements OnInit {
   private handleGetReservationsResponse(response: GetReservationsResponse) {
     match(response)
       .with({ status: 'correct' }, (response) =>
-        this.handleGetReservationsCorrect(response.data),
+        this.handleGetReservationsCorrect(response.data)
       )
       .with({ status: 'error' }, (response) =>
-        this.handleGetReservationsError(response.error),
+        this.handleGetReservationsError(response.error)
       )
       .exhaustive();
   }
@@ -197,36 +199,36 @@ export class RefugeDetailPage implements OnInit {
       .with(GetReservationsErrors.UNAUTHORIZED, () => this.handleUnauthorized())
       .with(GetReservationsErrors.FORBIDDEN, () => this.handleForbidden())
       .with(GetReservationsErrors.NOT_FOUND, () =>
-        this.handleNotFoundReservations(),
+        this.handleNotFoundReservations()
       )
       .with(GetReservationsErrors.UNKNOWN_ERROR, () =>
-        this.handleUnknownError(),
+        this.handleUnknownError()
       )
       .with(GetReservationsErrors.CLIENT_SEND_DATA_ERROR, () =>
-        this.handleBadUserData(),
+        this.handleBadUserData()
       )
       .with(
         GetReservationsErrors.PROGRAMMER_SEND_DATA_ERROR,
         GetReservationsErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
-        () => this.handleBadProgrammerData(),
+        () => this.handleBadProgrammerData()
       );
   }
 
   private handleUnauthorized() {
     this.finishLoadAnimAndExecute(() =>
-      this.router.navigate(['login']).then(),
+      this.router.navigate(['login']).then()
     ).then();
   }
 
   private handleForbidden() {
     this.finishLoadAnimAndExecute(() =>
-      this.router.navigate(['forbidden']).then(),
+      this.router.navigate(['forbidden']).then()
     ).then();
   }
 
   private handleNotFoundReservations() {
     this.finishLoadAnimAndExecute(() =>
-      this.router.navigate(['not-found']).then(),
+      this.router.navigate(['not-found']).then()
     ).then();
   }
 
@@ -279,12 +281,12 @@ export class RefugeDetailPage implements OnInit {
       .with(GetUserErrors.NOT_FOUND, () => this.handleNotFoundReservations())
       .with(GetUserErrors.UNKNOWN_ERROR, () => this.handleUnknownError())
       .with(GetUserErrors.CLIENT_SEND_DATA_ERROR, () =>
-        this.handleBadUserData(),
+        this.handleBadUserData()
       )
       .with(
         GetUserErrors.PROGRAMMER_SEND_DATA_ERROR,
         GetUserErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
-        () => this.handleBadProgrammerData(),
+        () => this.handleBadProgrammerData()
       );
   }
 

@@ -36,30 +36,30 @@ export class RefugesListPage implements OnInit {
     private router: Router,
     private refugeService: RefugeService,
     private alertController: AlertController,
-    private translateService: TranslateService,
+    private translateService: TranslateService
   ) {
     this.errors = this.refugeService.getRefuges().pipe(
       filter(
         (response): response is ErrorGetRefuges =>
-          !isMatching(ErrorGetRefugesPattern, response),
+          !isMatching(ErrorGetRefugesPattern, response)
       ),
-      map((response: ErrorGetRefuges) => response.error),
+      map((response: ErrorGetRefuges) => response.error)
     );
     this.search = new BehaviorSubject<String>('');
     const searchInput = this.search.asObservable();
     const allRefuges = this.refugeService.getRefuges().pipe(
       filter((response): response is CorrectGetRefuges =>
-        isMatching(CorrectGetRefugesPattern, response),
+        isMatching(CorrectGetRefugesPattern, response)
       ),
-      map((response: CorrectGetRefuges) => response.data),
+      map((response: CorrectGetRefuges) => response.data)
     );
     this.refuges = combineLatest([searchInput, allRefuges]).pipe(
       map(([searchTerm, refuges]) => {
         if (searchTerm === '') return refuges;
         return refuges.filter((refuge: Refuge) =>
-          refuge.name.toLowerCase().includes(searchTerm.toLowerCase()),
+          refuge.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
-      }),
+      })
     );
   }
 
@@ -82,7 +82,7 @@ export class RefugesListPage implements OnInit {
     match(error)
       .with(GetAllRefugesErrors.UNKNOWN_ERROR, () => this.handleUnknownError())
       .with(GetAllRefugesErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR, () =>
-        this.handleBagProgrammerData(),
+        this.handleBagProgrammerData()
       )
       .exhaustive();
   }

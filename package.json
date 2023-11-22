@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@capacitor/android": "^5.5.1",
+    "@capacitor/assets": "^3.0.1",
     "husky": "^8.0.3"
   },
   "devDependencies": {

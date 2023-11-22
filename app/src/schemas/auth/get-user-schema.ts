@@ -34,7 +34,7 @@ export namespace GetUserErrors {
       .with(HttpStatusCode.NotFound, () => GetUserErrors.NOT_FOUND)
       .with(
         HttpStatusCode.UnprocessableEntity,
-        () => GetUserErrors.PROGRAMMER_SEND_DATA_ERROR,
+        () => GetUserErrors.PROGRAMMER_SEND_DATA_ERROR
       )
       .otherwise(() => GetUserErrors.UNKNOWN_ERROR);
   }

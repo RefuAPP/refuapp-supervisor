@@ -39,16 +39,16 @@ export class ReservationService {
             status: 'error',
             error: GetReservationsErrors.SERVER_INCORRECT_DATA_FORMAT_ERROR,
           };
-        },
+        }
       ),
       catchError<GetReservationsResponse | Error, ObservableInput<any>>(
         (err: HttpErrorResponse) =>
           of({
             status: 'error',
             error: GetReservationsErrors.from(err),
-          }),
+          })
       ),
-      retry(3),
+      retry(3)
     );
   }
 

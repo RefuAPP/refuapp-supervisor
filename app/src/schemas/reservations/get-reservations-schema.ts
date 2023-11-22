@@ -31,13 +31,13 @@ export namespace GetReservationsErrors {
       })
       .with(
         HttpStatusCode.Unauthorized,
-        () => GetReservationsErrors.UNAUTHORIZED,
+        () => GetReservationsErrors.UNAUTHORIZED
       )
       .with(HttpStatusCode.Forbidden, () => GetReservationsErrors.FORBIDDEN)
       .with(HttpStatusCode.NotFound, () => GetReservationsErrors.NOT_FOUND)
       .with(
         HttpStatusCode.UnprocessableEntity,
-        () => GetReservationsErrors.PROGRAMMER_SEND_DATA_ERROR,
+        () => GetReservationsErrors.PROGRAMMER_SEND_DATA_ERROR
       )
       .otherwise(() => GetReservationsErrors.UNKNOWN_ERROR);
   }

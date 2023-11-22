@@ -30,7 +30,7 @@ export namespace GetRefugeFromIdErrors {
       .with(HttpStatusCode.NotFound, () => GetRefugeFromIdErrors.NOT_FOUND)
       .with(
         HttpStatusCode.UnprocessableEntity,
-        () => GetRefugeFromIdErrors.PROGRAMMER_SEND_DATA_ERROR,
+        () => GetRefugeFromIdErrors.PROGRAMMER_SEND_DATA_ERROR
       )
       .otherwise(() => GetRefugeFromIdErrors.UNKNOWN_ERROR);
   }

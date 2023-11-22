@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private alertController: AlertController,
     private loadingController: LoadingController,
-    private translateService: TranslateService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit() {}
@@ -85,7 +85,7 @@ export class LoginPage implements OnInit {
       ],
     });
     await this.finishLoadingAnimationAndExecute(
-      async () => await alert.present(),
+      async () => await alert.present()
     );
   }
 
@@ -99,12 +99,14 @@ export class LoginPage implements OnInit {
       })
       .with(AdminErrors.INCORRECT_PASSWORD, () => {
         this.showErrorAndFinishLoadingAnimation(
-          'LOGIN.PASSWORD.ERROR_INCORRECT_PASSWORD',
+          this.translateService.instant(
+            'LOGIN.PASSWORD.ERROR_INCORRECT_PASSWORD'
+          )
         ).then();
       })
       .with(AdminErrors.USER_NOT_FOUND, () => {
         this.showErrorAndFinishLoadingAnimation(
-          'LOGIN.USERNAME.ERROR_NOT_FOUND',
+          'LOGIN.USERNAME.ERROR_NOT_FOUND'
         ).then();
       })
       .exhaustive();
@@ -135,7 +137,7 @@ export class LoginPage implements OnInit {
   }
 
   private async finishLoadingAnimationAndExecute(
-    callback: (() => void) | (() => Promise<void>),
+    callback: (() => void) | (() => Promise<void>)
   ) {
     await this.loadingController.dismiss();
     await callback();

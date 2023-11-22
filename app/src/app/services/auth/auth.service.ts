@@ -25,11 +25,11 @@ const authUri = `${environment.API}/login/`;
 export class AuthService {
   constructor(
     private storageService: StorageService,
-    private http: HttpClient,
+    private http: HttpClient
   ) {}
 
   getToken(
-    credentials: SupervisorCredentials,
+    credentials: SupervisorCredentials
   ): Observable<AuthenticationResponse> {
     const data = this.getFormDataFrom(credentials);
     return this.getTokenFromApi(data);
@@ -52,7 +52,7 @@ export class AuthService {
     return this.http.post<Token>(authUri, data).pipe(
       map((response: Token) => fromResponse(response)),
       catchError((err: HttpErrorResponse) => of(fromError(err))),
-      retry(3),
+      retry(3)
     );
   }
 
@@ -80,9 +80,9 @@ export class AuthService {
           of({
             status: 'error',
             error: GetReservationsErrors.from(err),
-          }),
+          })
       ),
-      retry(3),
+      retry(3)
     );
   }
 

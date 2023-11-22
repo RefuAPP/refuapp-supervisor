@@ -15,7 +15,7 @@ export enum AdminErrors {
 
 export namespace AuthenticationErrors {
   export function fromHttp(
-    err: HttpErrorResponse,
+    err: HttpErrorResponse
   ): AuthenticationErrors | never {
     return match(err.status)
       .returnType<AuthenticationErrors>()
@@ -26,7 +26,7 @@ export namespace AuthenticationErrors {
       .with(HttpStatusCode.NotFound, () => AdminErrors.USER_NOT_FOUND)
       .with(
         HttpStatusCode.UnprocessableEntity,
-        () => ServerErrors.INCORRECT_DATA_FORMAT,
+        () => ServerErrors.INCORRECT_DATA_FORMAT
       )
       .otherwise(() => ServerErrors.UNKNOWN_ERROR);
   }

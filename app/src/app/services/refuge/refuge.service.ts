@@ -42,8 +42,8 @@ export class RefugeService {
         .pipe(
           mergeMap(() => this.getAllRefugesFromApi()),
           distinctUntilChanged(
-            (a, b) => JSON.stringify(a) === JSON.stringify(b),
-          ),
+            (a, b) => JSON.stringify(a) === JSON.stringify(b)
+          )
         )
         .pipe(share());
     }
@@ -79,9 +79,9 @@ export class RefugeService {
           of({
             status: 'error',
             error: GetAllRefugesErrors.from(err),
-          }),
+          })
       ),
-      retry(3),
+      retry(3)
     );
   }
 
@@ -101,9 +101,9 @@ export class RefugeService {
           of({
             status: 'error',
             error: GetRefugeFromIdErrors.from(err),
-          }),
+          })
       ),
-      retry(3),
+      retry(3)
     );
   }
 

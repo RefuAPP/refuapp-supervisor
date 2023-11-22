@@ -16,14 +16,14 @@ const routes: Routes = [
     path: 'internal-error-page',
     loadChildren: () =>
       import('./pages/internal-error-page/internal-error-page.module').then(
-        (m) => m.InternalErrorPagePageModule,
+        (m) => m.InternalErrorPagePageModule
       ),
   },
   {
     path: 'programming-error',
     loadChildren: () =>
       import('./pages/programming-error/programming-error.module').then(
-        (m) => m.ProgrammingErrorPageModule,
+        (m) => m.ProgrammingErrorPageModule
       ),
   },
   {
@@ -35,14 +35,14 @@ const routes: Routes = [
     path: 'not-found',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(
-        (m) => m.NotFoundPageModule,
+        (m) => m.NotFoundPageModule
       ),
   },
   {
     path: 'forbidden',
     loadChildren: () =>
       import('./pages/forbidden/forbidden.module').then(
-        (m) => m.ForbiddenPageModule,
+        (m) => m.ForbiddenPageModule
       ),
   },
 ];

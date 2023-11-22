@@ -13,7 +13,7 @@ const LANGUAGE_KEY = 'language';
 export class DeviceLanguageService {
   constructor(
     private storageService: StorageService,
-    private translateService: TranslateService,
+    private translateService: TranslateService
   ) {}
 
   async getCurrentLanguageCode(): Promise<string> {
@@ -31,7 +31,7 @@ export class DeviceLanguageService {
   getLanguageCode(): Observable<string> {
     return timer(0, 3_000).pipe(
       mergeMap(() => fromPromise(this.getCurrentLanguageCode())),
-      distinctUntilChanged(),
+      distinctUntilChanged()
     );
   }
 

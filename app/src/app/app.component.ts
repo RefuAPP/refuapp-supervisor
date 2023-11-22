@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   constructor(
     private translateService: TranslateService,
-    private deviceLanguageService: DeviceLanguageService,
+    private deviceLanguageService: DeviceLanguageService
   ) {
     this.deviceLanguageService.getLanguageCode().subscribe((languageCode) => {
       this.translateService.use(languageCode);

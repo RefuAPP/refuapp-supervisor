@@ -14,14 +14,14 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(
     request: HttpRequest<any>,
-    next: HttpHandler,
+    next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return from(this.addToken(request, next));
   }
 
   private async addToken(
     request: HttpRequest<any>,
-    next: HttpHandler,
+    next: HttpHandler
   ): Promise<HttpEvent<any>> {
     const token = await this.storageService.get('token');
     if (token) {
