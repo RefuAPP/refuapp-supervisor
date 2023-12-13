@@ -1,0 +1,73 @@
+{
+  "HOME": {
+    "CLIENT_ERROR": {
+      "HEADER": "Alerte !",
+      "SUBHEADER": "Votre appareil rencontre des problèmes !",
+      "MESSAGE": "Votre appareil a-t-il accès à Internet ? Peut-être que c'est de notre faute et que nos serveurs sont hors service.",
+      "TRY_AGAIN": "Réessayez",
+      "EXIT": "Retour à l'accueil"
+    }
+  },
+  "LOGIN": {
+    "HEADER": "Connexion",
+    "USERNAME": {
+      "LABEL": "Nom d'utilisateur",
+      "ERROR": "Le nom d'utilisateur est requis",
+      "ERROR_NOT_FOUND": "Cet administrateur n'existe pas"
+    },
+    "PASSWORD": {
+      "LABEL": "Mot de passe",
+      "ERROR": "Le mot de passe est requis",
+      "ERROR_INCORRECT_PASSWORD": "Le mot de passe est incorrect"
+    },
+    "SUBMIT": "Connexion",
+    "LOADING": "Connexion en cours..."
+  },
+  "INTERNAL_ERROR": {
+    "HEADER": "Erreur interne",
+    "MESSAGE": "Désolé, nous rencontrons des problèmes internes. Réessayez plus tard.",
+    "EXIT": "Retour à l'accueil"
+  },
+  "PROGRAMMING_ERROR": {
+    "HEADER": "Erreur de programmation",
+    "MESSAGE": "Nous sommes nuls, notre code comporte une erreur de programmation et nous ne l'avons pas remarqué. Envoyez-nous un e-mail !",
+    "EXIT": "Retour à l'accueil"
+  },
+  "NOT_FOUND_ERROR": {
+    "HEADER": "Ressource non trouvée",
+    "MESSAGE": "La page que vous cherchez n'existe pas. Soit vous êtes un vilain, soit c'est de notre faute.",
+    "EXIT": "Retour à l'accueil"
+  },
+  "FORBIDDEN_ERROR": {
+    "HEADER": "Ressource interdite",
+    "MESSAGE": "La page que vous cherchez est interdite pour votre rôle. Soit vous êtes désobéissant, soit c'est de notre faute.",
+    "EXIT": "Retour à l'accueil"
+  },
+
+  "REFUGES": {
+    "FORM": {
+      "ALTITUDE": {
+        "LABEL": "Altitude"
+      },
+      "REGION": {
+        "LABEL": "Région"
+      }
+    },
+    "LIST": {
+      "HEADER": "Refuges",
+      "CAPACITY": "Capacité",
+      "METRES": "mètres",
+      "WINTER": "Hiver",
+      "SUMMER": "Été",
+      "PEOPLE": "personnes",
+      "SEARCH": "Recherche par nom"
+    }
+  },
+
+  "RESERVATIONS": {
+    "SEARCH": "Rechercher",
+    "USERNAME": "Nom d'utilisateur",
+    "PHONE": "Numéro de téléphone",
+    "EMERGENCY": "Numéro d'urgence"
+  }
+}
